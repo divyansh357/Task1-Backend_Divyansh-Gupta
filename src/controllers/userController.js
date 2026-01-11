@@ -27,4 +27,39 @@ const getUsers = async (req, res) => {
     }
 };
 
-module.exports = { getUsers };
+const deleteUser = async (req, res) => {
+    const { id } = req.params; // Get ID from URL (e.g., /users/5)
+
+    try {
+        const deletedUser = await userModel.deleteUser(id);
+
+        if (!deletedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json({ message: "User deleted successfully", user: deletedUser });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+};
+
+const updateUser = async (req, res) => {
+    const { id } = req.params;
+    const { name, email } = req.body; // Data to update
+
+    try {
+        const updatedUser = await userModel.updateUser(id, name, email);
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json({ message: "User updated successfully", user: updatedUser });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+};
+
+module.exports = { getUsers, deleteUser, updateUser };

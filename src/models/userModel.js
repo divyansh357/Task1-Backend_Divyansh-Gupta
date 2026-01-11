@@ -24,5 +24,20 @@ const getAllUsers = async (limit, offset) => {
     );
     return result.rows;
 };
+const deleteUser = async (id) => {
+    const result = await pool.query(
+        'DELETE FROM users WHERE id = $1 RETURNING *', 
+        [id]
+    );
+    return result.rows[0];
+};
 
-module.exports = { findUserByEmail, createUser, getAllUsers };
+const updateUser = async (id, name, email) => {
+    const result = await pool.query(
+        'UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING id, name, email',
+        [name, email, id]
+    );
+    return result.rows[0];
+};
+
+module.exports = { findUserByEmail, createUser, getAllUsers, deleteUser, updateUser };
