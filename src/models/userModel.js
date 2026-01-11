@@ -15,4 +15,14 @@ const createUser = async (name, email, hashedPassword) => {
     return result.rows[0]; // Returns the newly created user
 };
 
-module.exports = { findUserByEmail, createUser };
+// Function to get users with pagination
+const getAllUsers = async (limit, offset) => {
+    // $1 is limit, $2 is offset
+    const result = await pool.query(
+        'SELECT id, name, email, created_at FROM users LIMIT $1 OFFSET $2', 
+        [limit, offset]
+    );
+    return result.rows;
+};
+
+module.exports = { findUserByEmail, createUser, getAllUsers };

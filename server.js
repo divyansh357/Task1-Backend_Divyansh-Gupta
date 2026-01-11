@@ -1,7 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const pool = require('./config/db'); // Imports DB connection
-const authRoutes = require('./routes/authRoutes'); // Imports Routes
+const pool = require('./src/config/db'); // Imports DB connection
+const authRoutes = require('./src/routes/authRoutes'); // Imports Routes
+const userRoutes = require('./src/routes/userRoutes');
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 // Mount the routes
 // Any request starting with /api/auth goes to authRoutes
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 // Start the Server
 app.listen(PORT, () => {
