@@ -116,6 +116,7 @@ Server will start at `http://localhost:3000`
   │   ├── models        # Database queries & SQL (userModel)
   │   └── routes        # API URL definitions (authRoutes, userRoutes)
   ├── postman           # Postman collection for testing
+  ├── Images            # Evidence screenshots
   ├── .env              # Environment secrets (git-ignored)
   ├── server.js         # Entry point
   └── README.md         # Documentation
@@ -123,10 +124,23 @@ Server will start at `http://localhost:3000`
 
 ---
 
-## 📸 Screenshots
-1. **Secure Login (JWT Generation)**
-2. **Pagination & Caching (Performance)**
-   (Notice the "Serving from Cache" log indicating optimization)
+## 📸 API Execution Evidence
+
+### 🔐 Authentication Module
+| **1. Registration Success** | **2. Duplicate User Check** | **3. Login & JWT Generation** |
+|:---:|:---:|:---:|
+| ![Register](./Images/01_User_Registration.png) | ![Register 2](./Images/02_User_Registration_2.png) | ![JWT](./Images/03_Key_Acquired_JWT.png) |
+
+### 🛡️ Security & Performance
+| **4. Protected Route Access** | **5. Pagination (Limit/Offset)** | **6. Access Denied (No Token)** |
+|:---:|:---:|:---:|
+| ![Protected](./Images/04_Access_Granted.png) | ![Pagination](./Images/05_Smart_Data_Pagination.png) | ![401 Error](./Images/06_Access_Denied.png) |
+
+### 👤 User Operations & Optimization
+| **7. Delete User** | **8. Update Profile** | **9. Caching Optimization** |
+|:---:|:---:|:---:|
+| ![Delete](./Images/07_Delete_User.png) | ![Update](./Images/08_Update_Profile.png) | ![Caching](./Images/09_Caching_Log.png) |
+> *Screenshot 9 demonstrates server response time improvement (Serving from Cache)*
 
 ---
 
