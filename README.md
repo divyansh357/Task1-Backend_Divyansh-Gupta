@@ -115,6 +115,7 @@ Server will start at `http://localhost:3000`
   │   ├── middleware    # Authentication checks (authMiddleware)
   │   ├── models        # Database queries & SQL (userModel)
   │   └── routes        # API URL definitions (authRoutes, userRoutes)
+  ├── postman           # Postman collection for testing
   ├── .env              # Environment secrets (git-ignored)
   ├── server.js         # Entry point
   └── README.md         # Documentation
@@ -131,11 +132,12 @@ Server will start at `http://localhost:3000`
 
 ## 🧪 Testing with Postman
 A complete Postman Collection is included in the repo.
-1. Import `User_Management_Collection.json`.
-2. Run the **Collection Runner** to simulate bulk user registration.
+1. Navigate to the `postman/` folder.
+2. Import `User_Management_Collection.json` into Postman.
+3. Run the **Collection Runner** to simulate bulk user registration.
 3. Check the **Tests** tab in Postman to see automated status code verification.
 
 ---
 
-**Author:** [Your Name]  
+**Author:** Divyansh Kumar Gupta 
 **Internship:** Backend Developer Intern (Week 1)
